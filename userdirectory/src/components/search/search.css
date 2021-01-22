@@ -1,0 +1,18 @@
+.form-group {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #2cbbd8;
+  border: none;
+  box-shadow: none;
+}
+
+.btn-primary:hover {
+  color: #5d5d5d;
+  background-color: #dee2e6;
+  cursor: pointer;
+}

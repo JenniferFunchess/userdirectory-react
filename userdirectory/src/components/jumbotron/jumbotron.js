@@ -1,5 +1,6 @@
 import React from "react";
 import "../jumbotron/jumbotron.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Jumbotron() {
   return (

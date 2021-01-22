@@ -1,7 +1,7 @@
 .jumbotron {
-  height: 300px;
-  color: white;
-  background-color: #d84e2c;
+  height: 200px;
+  color: black;
+  background-color: blue;
   display: flex;
   align-items: center;
   align-content: center;
