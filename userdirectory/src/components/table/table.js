@@ -12,6 +12,24 @@ class Table extends React.Component {
     sortOrder: "",
     results: [],
   };
+
+  componentDidMount() {
+    API.ApiSearch()
+      .then((res) => {
+        this.setState({ results: res.data.results });
+        console.log(this.state.results);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  handleInputChange = (event) => {
+    if (event.target.name === "search") {
+      const searchTerm = event.target.value.toLowerCase();
+      this.setState({
+        search: searchTerm,
+      });
+    }
+  };
   render() {
     return <div></div>;
   }
