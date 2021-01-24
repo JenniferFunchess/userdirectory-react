@@ -1,9 +1,8 @@
 import React from "react";
 import API from "../../utils/API";
 import Search from "../search/search";
-import "../table/table.css";
 import DateFormat from "dateformat";
-import react, { Component } from "react";
+// import uuid from "react-uuid";
 
 class Table extends React.Component {
   state = {
@@ -29,6 +28,46 @@ class Table extends React.Component {
       });
     }
   };
+
+  sortByFirst = () => {
+    const sortedEmployees = this.state.results.sort((a, b) => {
+      if (b.name.first > a.name.first) {
+        return -1;
+      }
+      if (a.name.first > b.name.first) {
+        return 1;
+      }
+      return 0;
+    });
+
+    if (this.state.sortOrder === "DESC") {
+      sortedEmployees.reverse();
+      this.setState({ sortOrder: "ASC" });
+    } else {
+      this.setState({ sortOrder: "DESC" });
+    }
+    this.setState({ results: sortedEmployees });
+  };
+
+  sortByLast = () => {
+    const sortedEmployees = this.state.results.sort((a, b) => {
+      if (b.name.last > a.name.last) {
+        return -1;
+      }
+      if (a.name.last > b.name.last) {
+        return 1;
+      }
+      return 0;
+    });
+    if (this.state.sortOrder === "DESC") {
+      sortedEmployees.reverse();
+      this.setState({ sortOrder: "ASC" });
+    } else {
+      this.setState({ sortOrder: "DESC" });
+    }
+    this.setState({ results: sortedEmployees });
+  };
+
   render() {
     return (
       <div>
@@ -59,7 +98,7 @@ class Table extends React.Component {
             {this.state.results &&
               this.state.results.map((item) =>
                 item.name.first.toLowerCase().includes(this.state.search) ? (
-                  <tbody key={item.login.uuid}>
+                  <tbody key={item.login}>
                     <tr>
                       <td>
                         <img
@@ -76,7 +115,8 @@ class Table extends React.Component {
                     </tr>
                   </tbody>
                 ) : item.name.last.toLowerCase().includes(this.state.search) ? (
-                  <tbody key={item.login.uuid}>
+                  <tbody key={item.login}>
+                    {item}
                     <tr>
                       <td>
                         <img
