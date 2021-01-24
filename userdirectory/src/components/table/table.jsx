@@ -83,11 +83,15 @@ class Table extends React.Component {
                 <th>Image</th>
                 <th>
                   First Name{" "}
-                  <span className="downArrow" onClick={this.sortByFName}></span>
+                  <span className="downArrow" onClick={this.sortByFirst}>
+                    >
+                  </span>
                 </th>
                 <th>
                   Last Name{" "}
-                  <span className="downArrow" onClick={this.sortByLName}></span>
+                  <span className="downArrow" onClick={this.sortByLast}>
+                    >
+                  </span>
                 </th>
                 <th>Phone</th>
                 <th>Email</th>
