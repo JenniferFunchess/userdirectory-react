@@ -1,8 +1,9 @@
-// import axios from "axios";
-// const url = `https://randomuser.me/api/?results=30`;
+import axios from "axios";
 
-// export default {
-//   ApiSearch: function () {
-//     return axios.get(url);
-//   },
-// };
+export default {
+  getEmployees: function () {
+    return axios.get(
+      "https://randomuser.me/api?nat=us&inc=id,name,phone,dob,picture,email&results=10"
+    );
+  },
+};
